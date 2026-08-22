@@ -28,7 +28,7 @@ Strategy Engine (CPU1 <50us) - Top5 WeightedMid 514K + GARCH Vol 892K
 data/live_verified.json (SFC lineage)
 ```
 
-This diagram is now public at https://github.com/nsmanju/deribit-feed-strategy-dual-engine - explains Feed Engine pinned CPU0 <10us via pthread_setaffinity_np, Ring 1M heap avoids 320MB stack segfault, Strategy CPU1 <50us.
+This diagram explains Feed Engine pinned CPU0 <10us via pthread_setaffinity_np, Ring 1M heap avoids 320MB stack segfault, Strategy CPU1 <50us.
 
 ## 2. Architecture Notes
 
@@ -68,9 +68,9 @@ cmake --build build -j
 ./build/dual_engine --benchmark
 ./build/dual_engine --live
 
-## 6. Interview Pitch OSL/HashKey
+## 6. Notes for OSL/HashKey
 
 Built dual-engine C++23 HFT to solve jitter: feed CPU0 <10us TLS SNI -> 1M lock-free heap ring 15.3M/sec 11x -> strategy CPU1 <50us Top5 + GARCH vol. Live Deribit BTC 77k SFC lineage JSON.
 
-Author: Nadkalpur Manjunath | Bangalore | Latitude-7480 Ubuntu 24.04
+Author: Nadkalpur Manjunath | Hong Kong | Latitude-7480 Ubuntu 24.04
 Stack: C++23, Boost.Beast.Asio.SSL, OpenSSL 3.0, nlohmann/json, pthreads
