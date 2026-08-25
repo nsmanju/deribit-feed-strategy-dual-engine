@@ -40,7 +40,7 @@ Strategy Engine - Top5 weighted mid sum(p*q)/sum(q) + GARCH RV 27.68% vs 25.46% 
 
 | Metric | Before Single | After Dual-Engine | Gain |
 | --- | --- | --- | --- |
-| Throughput | 1.2M/sec blocking | 15.3M/sec ring | 12.7x |
+| Throughput | 1.2M/sec blocking | 15.3M events/sec ring (SPSC push/pop, 11x headroom over 2K/sec real feed) | 12.7x |
 | Feed latency | 80-200us jitter | <10us CPU0 isolated | 20x p99 |
 | Strategy latency | 120us+jitter | <50us CPU1 | 2.4x |
 | Jitter stddev | 150us | <5us decoupled | 30x |
